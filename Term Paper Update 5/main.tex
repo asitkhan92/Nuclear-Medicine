@@ -1,0 +1,61 @@
+\documentclass[12pt]{article}
+
+\begin{document}
+\title{Single Photon Emission Computed Tomography (SPECT)}
+\author{Asit Khan (17111015)}
+\maketitle
+
+
+\section*{Introduction}
+\large
+
+
+Although the principles of single photon emission computed tomography (SPECT) have been well understood for many years and several centers were using SPECT clinically in the late 1960s and early 1970s, there has been a dramatic increase in the number of SPECT installations in recent years. It is now unusual to purchase a gamma camera without SPECT capability and most new cameras are dual-headed, which can offer additional advantages in SPECT. A state-of-the-art gamma camera that is well maintained should produce high-quality SPECT images consistently, and even older cameras can produce acceptable images if care is taken. SPECT is essential for imaging the brain with either cerebral blood flow agents, such as c-HMPAO, or brain receptors, such as I-FP-CIT, and for imaging myocardial perfusion with either 201Tl or the technetium-labeled agents MIBI and tetrofosmin. SPECT is also now widely used in some aspects of skeletal imaging and can be helpful in tumor imaging with, for example, I-MIBG,In octreotide, or NeoSPECT.
+\par
+What is the purpose of SPECT and what is its advantage over planar imaging? Planar imaging portrays a three-dimensional (3-D) distribution of radioactivity as a 2-D image with no depth information and structures at different depths are superimposed. The result is a loss of contrast in the plane of interest due to the presence of activity in overlying and underlying structures, as shown in Figure 2.1. Multiple planar views are an attempt to overcome this problem but SPECT has been developed to tackle the problem directly. SPECT also involves collecting conventional plane views of the patient from different directions but many more views are necessary, typically 64 or 128, although each view usually has fewer counts than would be acceptable in a conventional static image. From these images a set of sections through the patient can then be reconstructed mathematically. Conventionally SPECT images are viewed in three orthogonal planes – transaxial, sagittal, and coronal – as shown in Figure 2.2. Usually the transaxial images are directly obtained from SPECT data; a particular row of pixels in each image obtained with a rotating gamma camera corresponds to particular transaxial section. The other planes are derived from a stack of transaxial sections.
+\par
+
+\section*{Week 2}
+\section*{ Theory of SPECT}
+In this section the emphasis will be on gamma camera SPECT. The fact that these systems can also be used for conventional imaging makes them an attractive option for any nuclear medicine department. Owing to the cost and lack of flexibility of dedicated tomographic devices producing single or multiple sections with higher resolution and better sensitivity, they are likely to remain the choice of specialist centers only. Now that gamma camera SPECT is well developed commercially and relatively inexpensive, it seems certain that interest in longitudinal or limited-angle SPECT will continue to decline and so this will not be considered further. The aim here is to consider the theory of SPECT
+only in sufficient detail to enable the user to understand the principles involved and to make any necessary decisions on an informed basis. A list of likely areas for decisions by the user is given in Table 2.1.
+
+\section*{Week 3}
+Projection, Back-projection
+In order to obtain transaxial sections of the distribution of radioactivity within a patient,projections of that distribution must first be collected at a series of positions around the patient. In Figure 2.3a, 1-D projections or profiles of a distribution of radioactivity comprising two
+point sources are shown for three positions of the detector. These correspond to a single transaxial section and are obtained from the same single row of pixels on each of the gamma camera images. Each element in each profile therefore represents the sum of the activity along a line perpendicular to the profile, that is perpendicular to the camera face. This profile element is often referred to as the line integral, being the integral along that line of the 2-D function which describes the variation of radioactivity with position.
+
+The simplest and most common method of reconstructing an image of the original distribution is by “back-projecting” each profile at the appropriate angle on to an image array in the computer as shown in Figure 2.3b. In other words, a constant value equal to the profile element is assumed for each point along that line in the image array. This procedure is carried out for each profile in turn
+and an image is built up numerically. This image is, however, of poor quality; regions of higher activity show up well but the back-projected image is blurred and has a structured background. This background includes the “spoke” or “star” artifact whose shape and magnitude will depend on the number of projections. These problems are fundamental to the projection/backprojection procedure but can, to some extent, be dealt with by filtering the profiles prior to backprojection.
+
+In practice back-projection is not carried out over 360◦ as shown in Figure 2.3b. Instead, although data are generally acquired over 360◦, it is usual to average opposite projections and then back-project only over 180◦. The advantage of
+this is that it partially compensates both for the drop in spatial resolution with distance from the camera face and for attenuation. Projections can, under certain circumstances, be collected over only 180◦ rather than the full 360◦; when this is done the data are back-projected without prior
+averaging.
+
+\section*{Week 4}
+Filters
+The problems of blurring and the high background in the reconstructed image are tackled by back-projecting negative numbers adjacent to the
+positive numbers which represent the object in the original profile. This is achieved by operating on the profile with an appropriate filter as demonstrated. After a sufficiently large number of profiles have been back-projected, these negative numbers tend to cancel out the positive background in the image. Using the mathematical technique known as Fourier analysis it is possible to describe images in terms of their spatial frequencies; these have units of 1/distance, that is cm−1. This is known as working in “frequency or Fourier space” as opposed to “real” space. In the image of a distribution of radioactivity, for example, fine detail is associated with the higher spatial frequencies and coarser structures with the lower spatial frequencies.
+Using a modern gamma camera, the upper limit for spatial frequencies recorded in planar images without scatter is about 2 cm−1. How the filters are designed and selected is best appreciated in frequency space, hence its introduction at this point, but it is not necessary to be familiar with the mathematics involved in Fourier analysis. For those wishing to consider this topic in
+more detail, the text by Brigham [1] offers an excellent introduction to the concepts involved. In Figure 2.5 three important situations are described
+in both real and frequency space. In an idealized line spread function (LSF) or delta function, all spatial frequencies are present with equal amplitude (upper images), but in a more realistic LSF there is a loss of signal at the higher spatial frequencies (middle images). Also shown (lower images) is a filter similar to many used in SPECT. Any process that results in a loss of signal at the higher spatial frequencies is said to smooth the signal. A filter that has this effect is described as a smoothing filter, and so back-projection itself can be said to act as a smoothing filter, as does the
+filter shown in Figure 2.5. The projection/backprojection procedure filters the image by a factor 1/f where f is the spatial frequency. Hence the higher the spatial frequency, the more the signal is suppressed and so a smoother image is produced.
+This effect is overcome by using a ramp filter in which each spatial frequency is amplified in proportion to the value of that frequency up to
+a maximum frequency, fmax, which is determined by data sampling. This filter will, of course, enhance the higher spatial frequencies, the aim being to restore higher spatial frequencies lost by the back-projection process. There are two problems with using the unmodified ramp filter. The first is that with real data, especially at the count densities encountered in clinical imaging, the higher spatial frequencies will be mainly noise rather than fine spatial detail. This noise is enhanced by the ramp filter producing a poor quality or “noisy” image. Secondly, the sharp cut-off at fmax produces “ringing” in the filter in real space; instead of the filter going negative and then tending to
+zero it will oscillate about the axis, going successively negative and positive. This reflects the difficulty of computing a sharp cutoff in frequency space with a finite, preferably fairly small, number of terms. Ringing will produce structured distortion of the reconstructed image.
+It is usual, therefore, to use a filter that is rampshaped at the lower spatial frequencies but rolls off at the higher spatial frequencies. This filter is produced by multiplying the ramp by a second filter, which causes the rolling off at higher spatial frequencies thus suppressing the noise. This technique is known as windowing. There are several possible options for this second filter and all manufacturers include a choice of filter in their SPECT
+software. Popular filters include the Butterworth, Hamming, and Shepp-Logan filters. Within each filter a number of options are available to control
+the amount and type of smoothness that the filter can apply. All SPECT filters require a cut-off value. The high-frequency content of an unfiltered backprojected SPECT image is almost exclusively noise and adds nothing to the quality of the image. The cut-off value is the spatial frequency above which all of the spatial content is removed. shows the effect on a normal 123I-FP-CIT SPECT image of using different cut off values in a Butterworth filter. Filters like the Butterworth and Hanning have additional parameters that change the shape of the filter, promoting and suppressing different frequencies within the image. Note that different computing systems express cut-off frequencies in different ways, cycle per cm, cycles per pixel or fractions of the Nyquist frequency, so it is important to be aware that a cut-off of 0.4 on one system may not give the same image on a different
+system.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
